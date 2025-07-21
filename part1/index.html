@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+    {{ msg }}
+
+
+    <h2>{{ data.title }}</h2>
+
+    <br>
+
+    Get vue link: <a v-bind:href="data.vueLink">Vue</a>
+
+    <br>
+
+    <p v-html="htmlCode"></p>
+
+
+    <br>
+
+    <p>Count: {{ count }}</p>
+    <button v-on:click="increase($event, 1)">Increament</button>
+    <button v-on:click="decrease(2)">Decreament</button>
+    <hr>
+
+    <button @click="test($event)">Event</button>
+
+
+</div>
+
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>
