@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <style>
+    .card-div{
+      width: 200px;
+      height: 200px;
+      border: 2px solid black;
+    }
+  </style>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+ 
+    <form @submit.prevent="handleSubmit">
+      <label for="">Enter Name: </label> 
+      <input type="text" name="" id="" @keyup.enter="handleKeyup">
+      <h3>Welcome to - {{name}}</h3>
+      <button type="submit">Submit</button>
+    </form>
+
+    <hr>
+
+    <div @click="handleDiv" class="card-div">
+      <button @click.stop="handelView">View</button>
+    </div>
+
+  </div>
+
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>

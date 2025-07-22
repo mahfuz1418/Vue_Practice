@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <style>
+    button{
+      margin: 3px;
+      padding: 5px 8px;
+      cursor: pointer;
+       border-radius: 5px;
+    }
+    .red{
+      width: 200px;
+      height: 200px;
+      background-color: red;
+      margin-top: 10px;
+    }
+
+    .green{
+      width: 200px;
+      height: 200px;
+      background-color: green;
+      margin-top: 10px;
+    }
+
+    .blue{
+      width: 200px;
+      height: 200px;
+      background-color:blue;
+      margin-top: 10px;
+    }
+
+    .active{
+      background-color:darkmagenta;
+      color: aliceblue;
+    }
+  </style>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+
+    <button @click="setColor('red')" :class="{active: activeClass=='red'}">Red</button>
+    <button @click="setColor('green')" :class="{active: activeClass=='green'}">Green</button>
+    <button @click="setColor('blue')" :class="{active: activeClass=='blue'}">Blue</button>
+
+    <button :class="['active', 'activeClass']">All class</button>
+    <br>
+
+    <div :class="activeClass">
+
+    </div>
+
+
+  </div>
+
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>

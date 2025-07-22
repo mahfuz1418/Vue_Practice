@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <style>
+
+  </style>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+</head>
+<body>
+  <div id="app">
+ 
+    <label for="">Input a Number: </label>
+    <!-- <input type="number" name="" id="" :value="num" @input="handleInput"> -->
+    <input type="text" name="" id="" v-model.number="num">
+    <br>
+   
+    <button @click="getDouble">Get Double</button>
+    <button @click="getSqure">Get Squre</button>
+    <button @click="addTen">Add 10</button>
+    <button @click="Reset">Reset</button>
+    <hr>
+    <label for="">Entered Number : {{num}}</label>
+    <br>
+    <label for="">Result: {{result}}</label>
+
+  </div>
+
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>
