@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <style>
+    .card{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+    <input type="text" placeholder="Enter Your First Name" v-model="firstName"><br><br>
+    <input type="text" placeholder="Enter Your Last Name" v-model="lastName"><br><br>
+
+    <h4>{{fullName}}</h4>
+  </div>
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>

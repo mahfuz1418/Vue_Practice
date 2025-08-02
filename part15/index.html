@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Vue Js ESM</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+
+  <style>
+    .card{
+      width: 200px;
+      height: 200px;
+      border: 1px solid black;
+    }
+  </style>
+</head>
+<body>
+  <div id="app">
+
+    <input type="text" v-model="review">
+    <ul>
+      <li  v-for="(skill, i) in skills" @click="removeSkill(i)" :key="skill.name">
+        <p>
+        {{skill.name}} - Expreience({{skill.experience}})  -
+            <span v-if="skill.experience < 3">Beginner</span>
+            <span v-else-if="skill.experience < 6">Mid level</span>
+            <span v-else>Expert</span>
+        </p>  
+
+      </li>
+    </ul>
+
+    <h4>Total count: {{totalSlills}}</h4>
+
+    <hr>
+    <ul>
+      <li  v-for="(skill, i) in experiencedPeople" @click="removeSkill(i)" :key="skill.name">
+        <p>
+        {{skill.name}} - Expreience({{skill.experience}})  -
+            <span v-if="skill.experience < 3">Beginner</span>
+            <span v-else-if="skill.experience < 6">Mid level</span>
+            <span v-else>Expert</span>
+        </p>  
+
+      </li>
+    </ul>
+  </div>
+
+
+  <script src="app.js">
+
+  </script>
+</body>
+</html>
