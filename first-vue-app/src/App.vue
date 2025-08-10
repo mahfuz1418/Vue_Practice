@@ -2,7 +2,7 @@
     <div>
         <h1>{{ msg }}</h1>
     </div>
-    <FirstComponent
+    <!-- <FirstComponent
         v-for="detail in details"
         :clientName="detail.cname"
         :address="detail.address"
@@ -35,18 +35,26 @@
         </template>
     </TheCard>
 
-    <TheCard></TheCard>
+    <TheCard></TheCard> -->
+
+    <ProductCard v-for="product in product" :key="product.name" :product="product" @buy-now-click="buyNow" @add-to-cart="addToCart" @toggle-favourit="handeToggle">
+
+    </ProductCard>
+
+
 </template>
 
 <script>
-import FirstComponent from './components/FirstComponent.vue';
-import TheCard from './components/TheCard.vue';
+// import FirstComponent from './components/FirstComponent.vue';
+// import TheCard from './components/TheCard.vue';
+import ProductCard from './components/ProductCard.vue';
 
     export default {
         data() {
             return {
                 msg: "Hi this is first vue app",
-                details: [{
+                details: [
+                    {
                         cname: "Ahad",
                         address: "Mirpur 12"
                     },
@@ -57,12 +65,49 @@ import TheCard from './components/TheCard.vue';
                         cname: "Wadud",
                         address: "Cox's Bazar"
                     },
+                ],
+                product: [
+                    {
+                        name: "Iphone",
+                        price: "50000",
+                        img: "https://i5.walmartimages.com/seo/Restored-Apple-iPhone-14-Pro-T-Mobile-256-GB-Deep-Purple-Refurbished_1385d15c-17b0-4392-8fc1-414cae1a51ed.75f6972b7faabe8490df9e82084adf01.jpeg",
+                        favourit: true
+                    },
+                    {
+                        name: "Xiaomi",
+                        price: "3000",
+                        img: "https://i5.walmartimages.com/seo/Restored-Apple-iPhone-14-Pro-T-Mobile-256-GB-Deep-Purple-Refurbished_1385d15c-17b0-4392-8fc1-414cae1a51ed.75f6972b7faabe8490df9e82084adf01.jpeg",
+                        favourit: false
+                    },
+                    {
+                        name: "Samsung",
+                        price: "4000",
+                        img: "https://i5.walmartimages.com/seo/Restored-Apple-iPhone-14-Pro-T-Mobile-256-GB-Deep-Purple-Refurbished_1385d15c-17b0-4392-8fc1-414cae1a51ed.75f6972b7faabe8490df9e82084adf01.jpeg",
+                        favourit: false,
+                    }
                 ]
+                    
+                    
+
+                
             }
         },
         components: {
-            FirstComponent,
-            TheCard
+            // FirstComponent,
+            // TheCard,
+            ProductCard
+        },
+        methods: {
+            buyNow(event){
+                console.log(event);
+            },
+            addToCart(event){
+                console.log(event);
+            },
+            handeToggle(product){
+                product.favourit = !product.favourit;
+                
+            }
         }
     }
 </script>
