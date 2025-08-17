@@ -4,10 +4,10 @@
         <div>
         <h1>{{ msg }}</h1>
         </div>
-
+        <input type="text" ref="inputValue">
         <hr>
 
-        <TheComment v-model="myComment" class="box" buttonText="CLick"  @click="handelClick" @continueClick="handelContinueClick()">
+        <TheComment v-model="myComment" class="box" buttonText="CLick"  @click="handelClick" @continueClick="handelContinueClick()" ref="theComment">
 
         </TheComment>
         <br>
@@ -48,6 +48,44 @@
                 <component :is="activeTab"></component>
             </KeepAlive>
         </div>
+        <hr>
+        <div>
+            <label for="">Name:</label> <br>
+            <input type="text" name=""  v-model="formData.inputName"><br>
+
+            <label for="">description:</label> <br>
+            <textarea type="text"  v-model="formData.description"></textarea><br>
+
+            <p>Please select your favorite Web language:</p>
+             <input type="radio" id="html" name="fav_language" value="HTML" v-model="formData.lang">
+             <label for="html">HTML</label><br>
+             <input type="radio" id="css" name="fav_language" value="CSS" v-model="formData.lang">
+             <label for="css">CSS</label><br>
+             <input type="radio" id="javascript" name="fav_language" value="JavaScript" v-model="formData.lang">
+             <label for="javascript">JavaScript</label>
+
+            <br>  
+        </div>
+
+        <br>
+
+        <select v-model="formData.car">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="mercedes">Mercedes</option>
+            <option value="audi">Audi</option>
+        </select>
+
+        <br>
+        <select multiple v-model="formData.cars">
+            <option value="volvo">Volvo</option>
+            <option value="saab">Saab</option>
+            <option value="opel">Opel</option>
+            <option value="audi">Audi</option>
+        </select>
+        <div v-for="(value, i) in formData">
+            <strong>{{ i }} : </strong>{{ value }}
+        </div>
     </div>
 
 
@@ -76,7 +114,19 @@ import TheNotification from './components/TheNotification.vue';
                 name: 'Ahad',
                 websiteAddress: 'www.ahad.com',
                 address: 'Mirpur - 12',
+                formData: {
+                    inputName : "",
+                    description : "",
+                    lang: "",
+                    car: "",
+                    cars: []
+                }
             }
+        },
+        mounted() {
+            console.log(this.$refs.inputValue);
+            console.log(this.$refs.theComment);
+            
         },
         provide() {
             return {
@@ -130,8 +180,6 @@ button {
   box-shadow: 0 0 3px 2px #111;
 }
 
-.tab {
-}
 
 .tab__menu {
   display: flex;
